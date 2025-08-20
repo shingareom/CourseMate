@@ -1,0 +1,54 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependency directories in subfolders (like Server/node_modules, CourseMate/node_modules)
+**/node_modules/
+
+# Logs
+logs
+*.log
+logs/*.log
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Runtime data
+lib-cov
+coverage
+*.lcov
+
+# Build directories
+build/
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Cache
+.cache/
+.next/
+.nuxt/
+.tmp/
+temp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Server uploads (user-generated files)
+Server/uploads/
+
+# Misc
+*.swp
+*.swo
