@@ -1,4 +1,3 @@
-// Server/server.js
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -16,12 +15,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/coursemate", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log("MongoDB connected"))
-.catch((err) => console.log(err));
+mongoose.connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/coursemate")
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error(err));
 
 // Middleware
 app.use(cors());

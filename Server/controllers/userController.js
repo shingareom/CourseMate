@@ -1,4 +1,3 @@
-// Server/controllers/userController.js
 import User from "../models/User.js";
 
 // Registration
@@ -10,12 +9,18 @@ export const registerUser = async (req, res) => {
     const { name, contactNo, address, email, password } = req.body;
     const profileImage = req.file ? req.file.filename : null;
 
+    // check if user exists
+    const existing = await User.findOne({ email });
+    if (existing) {
+      return res.status(400).json({ error: "User already exists" });
+    }
+
     const user = new User({
       name,
       contactNo,
       address,
       email,
-      password, // plain text password
+      password, // plain text password (you can hash later)
       profileImage,
     });
 
