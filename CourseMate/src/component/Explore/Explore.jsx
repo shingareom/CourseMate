@@ -1,9 +1,7 @@
 // src/component/Explore/Explore.jsx
 import React, { useEffect, useState } from "react";
-import { Container, Navbar, Nav, Image } from "react-bootstrap";
+import { Container, Navbar, Nav, Image, Dropdown } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
-
 
 function Explore() {
   const [user, setUser] = useState(null);
@@ -32,15 +30,25 @@ function Explore() {
             <>
               <span className="me-3">{user.name}</span>
               {user.profileImage && (
-                <Image
-                  src={`http://localhost:5000/uploads/${user.profileImage}`}
-                  roundedCircle
-                  style={{ width: "40px", height: "40px" }}
-                />
+                <Dropdown align="end">
+                  <Dropdown.Toggle
+                    as={Image}
+                    src={`http://localhost:5000/uploads/${user.profileImage}`}
+                    roundedCircle
+                    style={{ width: "40px", height: "40px", cursor: "pointer" }}
+                  />
+                  <Dropdown.Menu>
+                    <Dropdown.Item onClick={() => navigate("/courses")}>
+                      Back to Courses
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => navigate("/")}>
+                      Back to Home
+                    </Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               )}
-              <Button variant="outline-danger" className="ms-3" onClick={handleLogout}>
-                Logout
-              </Button>
             </>
           )}
         </Nav>

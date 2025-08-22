@@ -5,6 +5,7 @@ import Home from "./component/Home/Home";
 import Register from "./component/Auth/Register";
 import Login from "./component/Auth/Login";
 import Explore from "./component/Explore/Explore";
+import Courses from "./component/Courses/Courses"; // Make sure this path matches your folder structure
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/explore" element={<Explore />} />
+        <Route path="/courses" element={<Courses />} /> {/* Added new route */}
       </Routes>
     </Router>
   );

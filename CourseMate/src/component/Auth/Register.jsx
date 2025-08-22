@@ -1,4 +1,3 @@
-// src/component/Auth/Register.jsx
 import React, { useState } from "react";
 import { Form, Button, Container, Card } from "react-bootstrap";
 import axios from "axios";
@@ -27,7 +26,8 @@ function Register() {
       formData.append("password", password);
       if (profileImage) formData.append("profileImage", profileImage);
 
-      const res = await axios.post("http://localhost:5000/register", formData, {
+      // ✅ FIXED endpoint
+      const res = await axios.post("http://localhost:5000/api/auth/register", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

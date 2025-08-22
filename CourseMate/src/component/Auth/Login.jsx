@@ -25,7 +25,7 @@ function Login() {
         localStorage.setItem("user", JSON.stringify(res.data.user));
 
         // Redirect to Explore page
-        navigate("/explore");
+        navigate("/");
       } else {
         setMessage(res.data.message || "Login failed");
       }
